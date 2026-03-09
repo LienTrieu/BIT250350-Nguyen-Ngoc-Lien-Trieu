@@ -1,0 +1,97 @@
+câu 1 
+import math
+a = float(input("Nhập a: "))
+b = float(input("Nhập b: "))
+c = float(input("Nhập c: "))
+max_num = max(a, b, c)
+min_num = min(a, b, c)
+print("Số lớn nhất:", max_num)
+print("Số nhỏ nhất:", min_num)
+if a == 0:
+    if b == 0:
+        if c == 0:
+            print("Phương trình vô số nghiệm")
+        else:
+            print("Phương trình vô nghiệm")
+    else:
+        x = -c / b
+        print("Phương trình bậc 1, nghiệm x =", x)
+else:
+    delta = b**2 - 4*a*c
+
+    if delta < 0:
+        print("Phương trình vô nghiệm")
+    elif delta == 0:
+        x = -b / (2*a)
+        print("Phương trình có nghiệm kép x =", x)
+    else:
+        x1 = (-b + math.sqrt(delta)) / (2*a)
+        x2 = (-b - math.sqrt(delta)) / (2*a)
+        print("x1 =", x1)
+        print("x2 =", x2)
+câu 2
+print("Các số lẻ từ 111 đến 17:")
+for i in range(111, 16, -1):
+    if i % 2 != 0:
+        print(i, end=" ")
+
+print("\n\nCác số nguyên tố từ 17 đến 111:")
+
+for i in range(17, 112):
+    kt = True
+    if i < 2:
+        kt = False
+    else:
+        for j in range(2, int(i**0.5) + 1):
+            if i % j == 0:
+                kt = False
+                break
+
+    if kt:
+        print(i, end=" ")print("Các số lẻ từ 111 đến 17:")
+for i in range(111, 16, -1):
+    if i % 2 != 0:
+        print(i, end=" ")
+
+print("\n\nCác số nguyên tố từ 17 đến 111:")
+for i in range(17, 112):
+    kt = True
+    if i < 2:
+        kt = False
+    else:
+        for j in range(2, int(i**0.5) + 1):
+            if i % j == 0:
+                kt = False
+                break
+    if kt:
+        print(i, end=" ")
+câu 3
+n = int(input("Nhập n: "))
+print("Hình 1:")
+for i in range(1, n+1):
+    for j in range(1, i+1):
+        print(j, end=" ")
+    print()
+print("\nHình 2:")
+for i in range(1, n+1):
+    print(" "*(n-i), end="")
+    if i == 1:
+        print("*")
+    elif i == n:
+        print("* " * i)
+    else:
+        print("*" + " "*(2*i-3) + "*")n = int(input("Nhập n: "))
+print("Hình 1:")
+for i in range(1, n+1):
+    for j in range(1, i+1):
+        print(j, end=" ")
+    print()
+print("\nHình 2:")
+for i in range(1, n+1):
+    print(" "*(n-i), end="")
+    if i == 1:
+        print("*")
+    elif i == n:
+        print("* " * i)
+    else:
+        print("*" + " "*(2*i-3) + "*")
