@@ -1,0 +1,143 @@
+#cau 1
+a = 10
+b = 4
+result = (a**2 + b**2) / (a - b)
+print("Kết quả:", result)
+#cau 2
+import math
+a = int(input("Nhập số a: "))
+b = int(input("Nhập số b: "))
+print("a^b =", a**b)
+print("Căn bậc 2 của a =", math.sqrt(a))
+print("Chia lấy phần nguyên a//b =", a//b)
+print("Chia lấy phần dư a%b =", a%b)
+print("Làm tròn a =", round(a))
+#cau 3
+n = int(input("Nhập số từ 1 đến 9: "))
+for i in range(1, 10):
+    print(n, "x", i, "=", n*i)
+#cau 4
+for i in range(1, 101):
+    if i % 3 != 0:
+        print(i)
+#cau 5
+import random
+m = int(input("Nhập số hàng: "))
+n = int(input("Nhập số cột: "))
+matrix = []
+for i in range(m):
+    row = []
+    for j in range(n):
+        row.append(random.randint(1, 100))
+    matrix.append(row)
+print("Ma trận:")
+for row in matrix:
+    print(row)
+h = int(input("Nhập hàng muốn xem: "))
+print("Hàng", h, ":", matrix[h-1])
+c = int(input("Nhập cột muốn xem: "))
+for i in range(m):
+    print(matrix[i][c-1])
+max_value = matrix[0][0]
+for row in matrix:
+    for value in row:
+        if value > max_value:
+            max_value = value
+print("Giá trị lớn nhất:", max_value)
+#cau 6
+s = input("Nhập chuỗi số: ")
+numbers = [int(x.strip()) for x in s.split(";")]
+for num in numbers:
+    print(num)
+even = sum(1 for x in numbers if x % 2 == 0)
+negative = sum(1 for x in numbers if x < 0)
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+prime_count = sum(1 for x in numbers if is_prime(x))
+avg = sum(numbers) / len(numbers)
+print("Số chẵn:", even)
+print("Số âm:", negative)
+print("Số nguyên tố:", prime_count)
+print("Trung bình:", avg)
+#cau 7
+class Student:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+sv1 = Student("Nguyen Van A", 9)
+sv2 = Student("Tran Van B", 8)
+print(sv1.name, sv1.score)
+print(sv2.name, sv2.score)
+#cau 8 class Student:
+    def __init__(self, name, score):
+        self.name = name
+        if 0 <= score <= 10:
+            self.score = score
+        else:
+            print("Điểm không hợp lệ, gán = 0")
+            self.score = 0
+sv1 = Student("A", 9)
+sv2 = Student("B", 11)
+print(sv1.name, sv1.score)
+print(sv2.name, sv2.score)
+#cau 9
+class Student:
+    def __init__(self, name, score):
+        self.name = name
+        if 0 <= score <= 10:
+            self.score = score
+        else:
+            self.score = 0
+    def display(self):
+        print(f"Sinh viên {self.name} có điểm là {self.score}")
+sv1 = Student("A", 10)
+sv2 = Student("B", 8)
+sv1.display()
+sv2.display()
+#cau 10
+def add_product():
+    code = input("Nhập mã sản phẩm: ")
+    name = input("Nhập tên sản phẩm: ")
+    price = input("Nhập giá: ")
+    f = open("products.txt", "a", encoding="utf-8")
+    f.write(code + ";" + name + ";" + price + "\n")
+    f.close()
+    print("Đã thêm sản phẩm!")
+def show_products():
+    f = open("products.txt", "r", encoding="utf-8")
+    print("Danh sách sản phẩm:")
+    for line in f:
+        data = line.strip().split(";")
+        print("Code:", data[0], "| Name:", data[1], "| Price:", data[2])
+    f.close()
+def sort_products():
+    products = []
+    f = open("products.txt", "r", encoding="utf-8")
+    for line in f:
+        data = line.strip().split(";")
+        code = data[0]
+        name = data[1]
+        price = float(data[2])
+        products.append([code, name, price])
+    f.close()
+    products.sort(key=lambda x: x[2], reverse=True)
+    print("Danh sách sau khi sắp xếp (giá giảm dần):")
+    for p in products:
+        print(p[0], p[1], p[2])
+while True:
+    choice = input("Chọn chức năng: ")
+    if choice == "1":
+        add_product()
+    elif choice == "2":
+        show_products()
+    elif choice == "3":
+        sort_products()
+    elif choice == "4":
+        break
+    else:
+        print("Lựa chọn không hợp lệ")
