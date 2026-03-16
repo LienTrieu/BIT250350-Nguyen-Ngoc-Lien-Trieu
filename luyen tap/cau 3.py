@@ -1,0 +1,5 @@
+name = input("nhap ten:")
+name = name.strip()
+name = " ".join(name.split())
+name = name.title()
+print("ten sau khi chuan hoa: ", name)
